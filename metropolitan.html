@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Metropolitan Region - Debate Circle</title>
+<style>
+body { font-family: Arial; background-color: #f7f9fa; margin: 0; }
+header { background-color: #003366; color: white; padding: 15px; text-align: center; }
+nav { background-color: #004080; padding: 10px; text-align: center; }
+nav a { color: white; margin: 10px; text-decoration: none; font-weight: bold; }
+nav a:hover { text-decoration: underline; }
+
+.dropdown { display:inline-block; position:relative; }
+.dropdown-content {
+    display:none; 
+    position:absolute; 
+    background:#004080; 
+    min-width:180px; 
+    z-index:1;
+    text-align: left; /* ensures links are left-aligned */
+}
+.dropdown-content a {
+    color:white; 
+    display:block; 
+    padding:8px; 
+    text-decoration:none;
+    text-align: left; /* left-align text */
+}
+.dropdown-content a:hover { background-color:#003366; }
+
+section { padding: 25px; text-align: center; }
+
+.category-buttons button {
+    padding: 12px 20px; margin: 10px; border: none; background: #004080; color: white; cursor: pointer; border-radius: 5px;
+}
+.category-buttons button:hover { background: #003366; }
+
+.category-box { display: none; margin-top: 25px; background: white; padding: 20px; border-radius: 6px; }
+h3 { color: #003366; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+table, th, td { border: 1px solid #ccc; }
+th, td { padding: 8px; text-align: center; }
+.pair-blue { background-color: #d9e8ff; }
+.pair-white { background-color: #ffffff; }
+
+footer { background-color: #003366; color: white; text-align: center; padding: 10px; margin-top: 40px; }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>METROPOLITAN REGION</h1>
+    <p>Debate & Public Speaking Rankings</p>
+</header>
+
+<nav>
+    <a href="dashboard.html">Dashboard</a>
+    
+    <!-- REGIONS DROPDOWN -->
+    <div class="dropdown">
+        <a href="#">Regions &#9662;</a>
+        <div class="dropdown-content">
+            <a href="lower eastern.html">Lower Eastern</a>
+            <a href="upper eastern.html">Upper Eastern</a>
+            <a href="coast.html">Coast</a>
+            <a href="western.html">Western</a>
+            <a href="nyanza.html">Nyanza</a>
+            <a href="mount_kenya.html">Mount Kenya</a>
+        </div>
+    </div>
+
+    <a href="#">Matches</a>
+     <a href="Results.HTML">Results</a>
+    <a href="/logout">Logout</a>
+</nav>
+
+<section>
+    <h2>Select Category</h2>
+    <div class="category-buttons">
+        <button onclick="showCategory('senior')">Senior Debate</button>
+        <button onclick="showCategory('junior')">Junior Debate</button>
+        <button onclick="showCategory('mjadala')">Mjadala</button>
+        <button onclick="showCategory('public')">Public Speaking</button>
+        <button onclick="showCategory('quiz')">Quiz</button>
+    </div>
+
+    <!-- Senior Debate -->
+    <div id="senior" class="category-box">
+        <h3>Senior Debate Matchups</h3>
+        <table id="seniorMatchup"><tr><th>School</th><th>Score</th></tr></table>
+        <h3>Senior Rankings</h3>
+        <table id="seniorRanking"><tr><th>Rank</th><th>School</th><th>Score</th></tr></table>
+    </div>
+
+    <!-- Junior Debate -->
+    <div id="junior" class="category-box">
+        <h3>Junior Debate Matchups</h3>
+        <table id="juniorMatchup"><tr><th>School</th><th>Score</th></tr></table>
+        <h3>Junior Rankings</h3>
+        <table id="juniorRanking"><tr><th>Rank</th><th>School</th><th>Score</th></tr></table>
+    </div>
+
+    <!-- Mjadala -->
+    <div id="mjadala" class="category-box">
+        <h3>Mjadala Matchups</h3>
+        <table id="mjadalaMatchup"><tr><th>School</th><th>Score</th></tr></table>
+        <h3>Mjadala Rankings</h3>
+        <table id="mjadalaRanking"><tr><th>Rank</th><th>School</th><th>Score</th></tr></table>
+    </div>
+
+    <!-- Public Speaking -->
+    <div id="public" class="category-box">
+        <h3>Public Speaking Matchups</h3>
+        <table id="publicMatchup"><tr><th>Name of Student</th><th>School</th><th>Score</th></tr></table>
+        <h3>Public Speaking Rankings</h3>
+        <table id="publicRanking"><tr><th>Rank</th><th>Name of Student</th><th>School</th><th>Average Score</th></tr></table>
+    </div>
+
+    <!-- Quiz -->
+    <div id="quiz" class="category-box">
+        <h3>Quiz Matchups</h3>
+        <table id="quizMatchup"><tr><th>Name of Student</th><th>School</th><th>Score</th></tr></table>
+        <h3>Quiz Rankings</h3>
+        <table id="quizRanking"><tr><th>Rank</th><th>Name of Student</th><th>School</th><th>Average Score</th></tr></table>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 DEBATE CIRCLE</p>
+</footer>
+
+<script>
+// Toggle dropdown menu
+const dropdown = document.querySelector('.dropdown');
+dropdown.addEventListener('mouseenter', ()=> {
+    dropdown.querySelector('.dropdown-content').style.display = 'block';
+});
+dropdown.addEventListener('mouseleave', ()=> {
+    dropdown.querySelector('.dropdown-content').style.display = 'none';
+});
+
+// Show selected category
+function showCategory(id){
+    const boxes = document.querySelectorAll(".category-box");
+    boxes.forEach(box => box.style.display = "none");
+    document.getElementById(id).style.display = "block";
+}
+
+// Placeholder: tables will be populated by backend later
+</script>
+
+</body>
+</html>
